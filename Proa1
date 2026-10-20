@@ -1,0 +1,43 @@
+n=int(input("Enter number of odservation:"))
+marks=[]
+for i in range(n):
+value=int(input("enter the value:"))
+marks.append(value)
+print("given Data:",marks)
+#! Calculate The Mean
+total=0
+for x in marks:
+total+=x
+mean=total/n
+#! Calculate the Median
+marks.sort()
+if n%2==0:
+median=(marks[n//2-1]+marks[n//2])
+else:
+median=marks[n//2]
+#! Calculate The Mode
+max_count = 0
+modes = []
+
+for x in marks:
+count = 0
+for y in marks:
+if x == y:
+count += 1
+if count > max_count:
+max_count = count
+modes = [x]
+elif count == max_count and x not in modes:
+modes.append(x)
+#! Calculate Sum Difference and Standard Divition
+sum_difference=0
+for x in marks:
+sum_difference+=(x-mean)**2
+variance=sum_difference/(n-2)
+standard_divition=variance**0.5
+#! Print Every Result
+print("\nMean=",mean)
+print("Median=",median)
+print("Mode =", modes, "Count =", max_count)
+print("Variance=",variance)
+print("Standard Devition=",standard_divition)
